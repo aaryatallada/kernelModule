@@ -15,7 +15,7 @@ static int proc_count(struct seq_file *m, void *v){
         n++; // Increment the counter for each process
     }
 
-    seq_printf(m, "Number of processes running: %d\n", n); // Print the formatted string
+    seq_printf(m, "%d\n", n); // Print the formatted string
     return 0;
 }
 
