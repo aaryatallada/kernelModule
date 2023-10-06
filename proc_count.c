@@ -9,15 +9,18 @@ static struct proc_dir_entry *entry;
 static int proc_count(struct seq_file *m, void *v){
 	// TODO: it's all yours
 	struct task_struct *p;
-	//int n = 0;
-	// char str[20];
+	int n = 0;
+	char str[20];
 	for_each_process(p){
-		seq_printf(m,"hello world\n");
+		n++;
+		// seq_printf(m,"hello world\n");
 	}
-	// sprintf(str, "%d", n);
-	
-	// seq_printf(m, "", str);
+	sprintf(str, "Number of processes running: %d\n", n); // Convert n to a string and store it in str
+
+	seq_printf(m, "%s", str); // Print the string
 	return 0;
+	// seq_printf(m, "Number of Processes Running: ", n)
+	// return 0;
 }
 
 static int __init proc_count_init(void)
